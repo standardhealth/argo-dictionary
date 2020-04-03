@@ -1,21 +1,11 @@
-const sample_registration = require('./sample_registration.json');
-const donor = require('./donor.json');
-const specimen = require('./specimen.json');
+const patient = require('./patient.json');
+const patient_status = require('./patient_vital_status.json');
+const patient_identifiable_information = require('./patient__identifiable_information.json');
 const c19_condition = require('./c19_condition.json');
-const treatment = require('./treatment.json');
-const chemotherapy = require('./chemotherapy.json');
-const hormone_therapy = require('./hormone_therapy.json');
-const radiation = require('./radiation.json');
-const follow_up = require('./follow_up.json');
 
 module.exports = [
-  sample_registration,
-  donor,
-  specimen,
+  patient,
+  patient_vital_status,
+  patient_identifiable_identification,
   c19_condition,
-  treatment,
-  chemotherapy,
-  hormone_therapy,
-  radiation,
-  follow_up,
 ];
