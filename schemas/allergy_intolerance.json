@@ -48,7 +48,7 @@
         "core": true
       },
       "restrictions": {
-        "code-list": ["allergy","intolerance"]
+        "codeList": ["allergy","intolerance"]
       }
     },
     {
