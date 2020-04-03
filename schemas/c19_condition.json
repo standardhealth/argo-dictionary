@@ -2,7 +2,7 @@
   "name": "c19_condition",
   "description": "The collection of data elements related to a condition with is diagnosed as or related to COVID-19. A condition can be either a diagnosis or part of an ongoing problem list.",
   "meta": {
-    "parent": "donor"
+    "parent": "patient"
   },
   "fields": [
     {
