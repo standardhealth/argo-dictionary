@@ -1,0 +1,116 @@
+{
+  "name": "medication_administration",
+  "description": "An instance of administering a medication to a patient.",
+  "meta": {
+    "parent": "patient"
+  },
+  "fields": [
+    {
+      "name": "medadmin_id",
+      "valueType": "string",
+      "description": "Unique identifier assigned to the medication administration episode.",
+      "meta": {
+        "core": true,
+        "validationDependency": true,
+        "primaryId": true,
+        "foreignKey": "patient_id"
+      },
+      "restrictions": {
+        "required": true
+      }
+    },
+    {
+      "name": "medication_code",
+      "valueType": "string",
+      "description": "The code to represent the medication that was administered.",
+      "restrictions": {
+        "required": true,
+        "codeList": [
+          "RxNorm code: http://www.nlm.nih.gov/research/umls/rxnorm",
+          "NDC code: http://hl7.org/fhir/sid/ndc"
+       ]
+      },
+      "meta": {
+        "core": true,
+        "examples": "codeSystem = RXNORM, code=199047, name=Famotidine 10 MG Oral Tablet",
+        "notes": "medication_code is a structure which contains codeSystem, code, and name. For RxNorm, all prescribable medication formulations represented using either a 'generic' or 'brand-specific' concept. This includes RxNorm codes whose Term Type is SCD (semantic clinical drug), SBD (semantic brand drug), GPCK (generic pack), BPCK (brand pack), SCDG (semantic clinical drug group), SBDG (semantic brand drug group), SCDF (semantic clinical drug form), or SBDF (semantic brand drug form). Source: http://www.hl7.org/fhir/us/core/STU3/ValueSet-us-core-medication-codes.html."
+      }
+    },
+    {
+      "name": "medadmin_status",
+      "description": "The status of the medication administration",
+      "valueType": "string",
+      "restrictions": {
+        "required": true,
+        "codeList": ["in-progress", "not-done", "on-hold", "completed",  "entered-in-error", "stopped", "unknown"]
+      },
+      "meta": {
+        "validationDependency": true,
+        "core": true,
+        "notes": "The medication administration status value set terms are described at https://www.hl7.org/fhir/valueset-medication-admin-status.html."
+      }
+    },
+    {
+      "name": "medication_route",
+      "description": "The path of the substance into the body for the administered medication.",
+      "restrictions": {
+         "codeList": [
+            "Include codes from http://snomed.info/sct  where concept is-a 284009009 (Route of administration values)"
+         ]
+      },
+      "valueType": "string",
+      "meta": {
+        "validationDependency": false,
+         "notes": ""
+      }
+    },
+    {
+      "name": "medadmin_start_date",
+      "description": "The date and time when the medication administration was started.",
+      "restrictions": {
+        "required": true
+      },
+      "valueType": "string",
+      "meta": {
+        "validationDependency": true,
+        "core": true,
+        "notes": ""
+      }
+    },
+    {
+      "name": "medadmin_stop_date",
+      "description": "The date and time when the medication as administered to the patient.",
+      "restrictions": {
+        "required": true
+      },
+      "valueType": "string",
+      "meta": {
+        "core": true,
+        "notes": ""
+      }
+    },
+    {
+      "name": "medadmin_dose_quantity",
+      "description": "The amount of the medication given at one administration event.",
+      "valueType": "string",
+      "meta": {
+        "core": true,
+        "examples": "10",
+        "notes": ""
+      }
+    },
+    {
+      "name": "medadmin_dose_units",
+      "description": "Unit of measure for the dose quantity of the administered medication.",
+      "valueType": "string",
+      "restrictions": {
+        "codeList": ["UCUM code"]
+      },
+      "meta": {
+        "validationDependency": true,
+        "core": true,
+        "notes": "nomenclature conforms to the Unified Code for Units of Measure (UCUM): https://unitsofmeasure.org/trac"
+      }
+    }     
+  ]
+}
