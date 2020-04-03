@@ -1,0 +1,64 @@
+{
+  "name": "allergy_intolerance",
+  "description": "The collection of data elements describing the details of a patient's allergies and intolerances.",
+  "meta": {
+    "parent": "patient"
+  },
+  "fields": [
+    {
+      "name": "allergy_intolerance_id",
+      "valueType": "string",
+      "description": "Unique identifier for the allergy or intolerance.",
+      "meta": {
+        "primaryId": true
+      },
+      "restrictions": {
+        "required": true
+      }
+    },
+    {
+      "name": "code",
+      "valueType": "string",
+      "description": "A code for the agent causing the allergy or intolerance.",
+      "meta":{
+        "core": true,
+        "examples": "7980",
+        "notes": "NDRFT or RxNorm for medication allergies/intolerances; SNOMED CT for non-medication allergies/intolerances."
+      },
+      "restrictions": {
+        "required": true
+      }
+    },
+    {
+      "name": "recorded_date",
+      "valueType": "string",
+      "description": "The date that the allergy or intolerance was recorded.",
+      "meta":{
+        "core": true
+      },
+      "restrictions": {
+        "required": true
+      }
+     },
+     {
+      "name": "type",
+      "valueType": "string",
+      "description": "Distinguishes whether the item refers to an allergy or an intolerance",
+      "meta":{
+        "core": true
+      },
+      "restrictions": {
+        "code-list": ["allergy","intolerance"]
+      }
+    },
+    {
+      "name": "category",
+      "description": "The type of allergy or intolerance.",
+      "valueType": "string",
+      "meta":{
+        "examples": "food,medication, environment"
+      }
+    }
+  ]
+}
+    
