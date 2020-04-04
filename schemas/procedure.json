@@ -1,0 +1,52 @@
+{
+  "name": "procedure",
+  "description": "An indicator of whether the patient is alive or dead.",
+  "meta": {
+    "parent": "patient"
+  },
+  "fields": [
+    {
+      "name": "code",
+      "description": "The code representing the procedure. A procedure is an action performed on a patient, including diagnostic tests, therapies - such as respiratory therapy, surgeries, and other clinical interventions.",
+      "restrictions": {
+        "required": true
+      },
+      "valueType": "string",
+      "meta": {
+        "core": true,
+        "notes": "SNOMED CT (preferred), ICD-10-CM (preferred) or HCPCS (alternative)."
+      }
+    },
+    {
+      "name": "status",
+      "description": "The date and time the procedure ended.",
+      "restrictions": {
+        "required": true,
+        "codeList": ["in-progress", "aborted", "completed", "entered-in-error"]
+      },
+      "valueType": "text",
+      "meta": {
+        "core": true
+      }
+    },
+    {
+      "name": "start_date",
+      "description": "The date and time the procedure started.",
+      "restrictions": {
+        "required": true
+      },
+      "valueType": "date",
+      "meta": {
+        "core": true
+      }
+    },
+    {
+      "name": "end_date",
+      "description": "The date and time the procedure ended.",
+      "valueType": "date",
+      "meta": {
+        "core": true
+      }
+    }
+  ]
+}

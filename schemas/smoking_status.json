@@ -1,0 +1,27 @@
+{
+  "name": "smoking_status",
+  "description": "Data elements associated with the patient's use ",
+  "meta": {
+    "parent": "patient"
+  },
+  "fields": [
+    {
+      "name": "smoking_status",
+      "valueType": "string",
+      "description": "The status of the patient's use of smoking tobacco.",
+      "meta": {
+        "core": true,
+        "notes": "SNOMED CT code."
+      },
+      "restrictions": {
+        "required": true,
+        "codeList": ["Current every day smoker","Current some day smoker","Former smoker", "Never smoker", "Smoker, current status unknown", "Unknown if ever smoked", "Current Heavy tobacco smoker", "Current Light tobacco smoker"]
+      }
+    },
+    {
+      "name": "recorded_date",
+      "valueType": "string",
+      "description": "The date when the smoking status was recorded."
+    }
+  ]
+}
